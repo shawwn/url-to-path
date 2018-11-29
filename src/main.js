@@ -98,6 +98,9 @@ export function usage() {
 }
 
 export default function main(options = {help: true}) {
+    if (typeof options === 'string') {
+        options = {url: options};
+    }
     if (options.help) {
         console.log(usage());
         return 0;
