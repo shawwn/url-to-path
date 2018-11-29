@@ -1,6 +1,8 @@
 const commandLineArgs = require('command-line-args');
 const commandLineUsage = require('command-line-usage');
 const PACKAGE = require('../package.json');
+const path = require('path');
+const url = require('url');
 
 class PathDetails {
     constructor (filename) {
@@ -110,11 +112,13 @@ export default function main(options = {help: true}) {
         return 1;
     }
     if (options.output == null) {
-        options.output = process.cwd();
+        options.output = '.';
     }
-    return 0;
+    const p = url.parse(options.url);
+    const ext = path.parse(p.path).ext;
+    const suffix = (ext != null && ext !== '') ? [] : ['index.html'];
+    return path.join(options.output, p.host || '.', p.path, ...suffix);
 }
-
 
 if (require.main === module) {
     const options = commandLineArgs(optionDefinitions);
