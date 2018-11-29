@@ -75,4 +75,11 @@ describe(require('../package.json').name, () => {
 			expect(main(url)).to.equal(out);
 		}
 	});
+	it('should return undefined for data urls', () => {
+		{
+			const url = 'data:application/octet-stream;base64,Zm9v';
+			const out = undefined;
+			expect(main(url)).to.equal(out);
+		}
+	});
 });

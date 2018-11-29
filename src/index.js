@@ -101,8 +101,12 @@ module.exports.usage = function usage() {
     ]);
 };
 
-const _shouldAppendIndex = (url) => {
+const _shouldAppendIndex = url => {
     return url.endsWith('/');
+}
+
+const _shouldSaveToDisk = url => {
+    return !url.startsWith('data:');
 }
 
 module.exports.main = function main(options = {help: true}) {
@@ -126,9 +130,11 @@ module.exports.main = function main(options = {help: true}) {
     if (options.output == null) {
         options.output = {path: '.', isDirectory: true, exists: true};
     }
-    const p = url.parse(options.url);
-    const suffix = _shouldAppendIndex(p.path) ? ['index.html'] : [];
-    return path.join(options.output.path, p.host || '.', p.path, ...suffix);
+    if (_shouldSaveToDisk(options.url)) {
+        const p = url.parse(options.url);
+        const suffix = _shouldAppendIndex(p.path) ? ['index.html'] : [];
+        return path.join(options.output.path, p.host || '.', p.path, ...suffix);
+    }
 };
 
 module.exports.cli = function() {
