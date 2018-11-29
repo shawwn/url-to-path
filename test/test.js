@@ -30,7 +30,6 @@ import TestServer from './server';
 // test subjects
 import main, {
 } from '../src/';
-import mainOrig from '../src/main.js';
 
 const supportToString = ({
 	[Symbol.toStringTag]: 'z'
