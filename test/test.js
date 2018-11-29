@@ -55,6 +55,6 @@ describe(require('../package.json').name, () => {
 	it('should convert to index.html', () => {
 		const url = 'https://aframe.io/aframe/examples/showcase/anime-UI/';
         const out = 'aframe.io/aframe/examples/showcase/anime-UI/index.html';
-		expect(main({url})).to.equal(out);
+		expect(main(url)).to.equal(out);
 	});
 });
