@@ -5,11 +5,11 @@ const path = require('path');
 const url = require('url');
 
 class PathDetails {
-    constructor (filename) {
+    constructor (path) {
         const fs = require('fs');
-        this.filename = filename;
-        this.exists = fs.existsSync(filename);
-        this.isDirectory = this.exists ? fs.statSync(filename).isDirectory() : false;
+        this.path = path;
+        this.exists = fs.existsSync(path);
+        this.isDirectory = this.exists ? fs.statSync(path).isDirectory() : false;
     }
 }
 
@@ -112,12 +112,12 @@ export default function main(options = {help: true}) {
         return 1;
     }
     if (options.output == null) {
-        options.output = '.';
+        options.output = {path: '.', isDirectory: true, exists: true};
     }
     const p = url.parse(options.url);
     const ext = path.parse(p.path).ext;
     const suffix = (ext != null && ext !== '') ? [] : ['index.html'];
-    return path.join(options.output, p.host || '.', p.path, ...suffix);
+    return path.join(options.output.path, p.host || '.', p.path, ...suffix);
 }
 
 if (require.main === module) {
