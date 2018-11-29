@@ -122,10 +122,13 @@ export default function main(options = {help: true}) {
 
 if (require.main === module) {
     const options = commandLineArgs(optionDefinitions);
-    const code = main(options);
-    if (typeof code === 'number') {
-        if (code !== 0) {
-            process.exit(code);
+    const result = main(options);
+    if (typeof result === 'number') {
+        if (result !== 0) {
+            process.exit(result);
         }
+    }
+    if (result != null) {
+        console.log(result);
     }
 }
