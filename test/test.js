@@ -62,7 +62,7 @@ after(done => {
 	local.stop(done);
 });
 
-describe('wgot', () => {
+describe(require('../package.json').name, () => {
 	it('should test', function() {
 		expect(main()).to.equal(0);
 	});

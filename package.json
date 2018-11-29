@@ -1,12 +1,12 @@
 {
-  "name": "wgot",
-  "version": "0.0.2",
-  "description": "wget simulator",
+  "name": "url-to-path",
+  "version": "0.0.0",
+  "description": "Convert a URL to a local path, wget-style.",
   "main": "lib/index.js",
   "browser": "./browser.js",
   "module": "lib/index.es.js",
   "bin": {
-    "wgot": "lib/index.js"
+    "url-to-path": "lib/index.js"
   },
   "files": [
     "lib/index.js",
@@ -25,21 +25,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shawwn/wgot.git"
+    "url": "https://github.com/shawwn/url-to-path.git"
   },
   "keywords": [
-    "fetch",
-    "wget",
-    "wgot",
-    "http",
-    "promise"
+    "url-to-path"
   ],
   "author": "Shawn Presser",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shawwn/wgot/issues"
+    "url": "https://github.com/shawwn/url-to-path/issues"
   },
-  "homepage": "https://github.com/shawwn/wgot",
+  "homepage": "https://github.com/shawwn/url-to-path",
   "devDependencies": {
     "babel-plugin-istanbul": "^4.0.0",
     "babel-preset-env": "^1.1.10",
