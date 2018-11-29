@@ -101,6 +101,10 @@ module.exports.usage = function usage() {
     ]);
 };
 
+const _shouldAppendIndex = (url) => {
+    return url.endsWith('/');
+}
+
 module.exports.main = function main(options = {help: true}) {
     const usage = module.exports.usage;
     if (typeof options === 'string') {
@@ -123,8 +127,7 @@ module.exports.main = function main(options = {help: true}) {
         options.output = {path: '.', isDirectory: true, exists: true};
     }
     const p = url.parse(options.url);
-    const ext = path.parse(p.path).ext;
-    const suffix = (ext != null && ext !== '') ? [] : ['index.html'];
+    const suffix = _shouldAppendIndex(p.path) ? ['index.html'] : [];
     return path.join(options.output.path, p.host || '.', p.path, ...suffix);
 };
 

@@ -52,8 +52,27 @@ describe(require('../package.json').name, () => {
 		expect(main()).to.equal(0);
 	});
 	it('should convert to index.html', () => {
-		const url = 'https://aframe.io/aframe/examples/showcase/anime-UI/';
-        const out = 'aframe.io/aframe/examples/showcase/anime-UI/index.html';
-		expect(main(url)).to.equal(out);
+		{
+			const url = 'https://aframe.io/aframe/examples/showcase/anime-UI/';
+			const out = 'aframe.io/aframe/examples/showcase/anime-UI/index.html';
+			expect(main(url)).to.equal(out);
+		}
+		{
+			const url = 'https://example.com/foo?bar/';
+			const out = 'example.com/foo?bar/index.html';
+			expect(main(url)).to.equal(out);
+		}
+	});
+	it('should not convert to index.html', () => {
+		{
+			const url = 'https://example.com/foo?bar';
+			const out = 'example.com/foo?bar';
+			expect(main(url)).to.equal(out);
+		}
+		{
+			const url = 'https://example.com/foo';
+			const out = 'example.com/foo';
+			expect(main(url)).to.equal(out);
+		}
 	});
 });
