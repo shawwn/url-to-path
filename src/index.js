@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const commandLineArgs = require('command-line-args');
 const commandLineUsage = require('command-line-usage');
 const PACKAGE = require('../package.json');

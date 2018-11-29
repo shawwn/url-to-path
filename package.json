@@ -6,7 +6,7 @@
   "browser": "./browser.js",
   "module": "lib/index.es.js",
   "bin": {
-    "url-to-path": "lib/index.js"
+    "url-to-path": "src/cli.js"
   },
   "files": [
     "src/index.js",
