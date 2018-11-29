@@ -1,6 +1,6 @@
 {
   "name": "url-to-path",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Convert a URL to a local path, wget-style.",
   "main": "src/index.js",
   "browser": "./browser.js",
