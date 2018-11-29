@@ -10,6 +10,7 @@
   },
   "files": [
     "src/index.js",
+    "src/cli.js",
     "lib/index.es.js",
     "browser.js"
   ],
