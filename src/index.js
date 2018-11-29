@@ -128,7 +128,7 @@ module.exports.main = function main(options = {help: true}) {
     return path.join(options.output.path, p.host || '.', p.path, ...suffix);
 };
 
-if (require.main === module) {
+module.exports.cli = function() {
     const options = commandLineArgs(optionDefinitions);
     const result = module.exports.main(options);
     if (typeof result === 'number') {
@@ -139,4 +139,7 @@ if (require.main === module) {
     if (result != null) {
         console.log(result);
     }
+};
+if (require.main === module) {
+    module.exports.cli();
 }

@@ -4,7 +4,6 @@
   "description": "Convert a URL to a local path, wget-style.",
   "main": "src/cli.js",
   "browser": "./browser.js",
-  "module": "lib/index.es.js",
   "bin": {
     "url-to-path": "src/cli.js"
   },

@@ -1,2 +1,3 @@
 #!/usr/bin/env node
 module.exports = require('./index.js');
+module.exports.cli();
